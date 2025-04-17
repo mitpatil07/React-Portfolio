@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+@font-face {
+  font-family: 'ravors';
+  src: url('../fonts/Takota.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.landing-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .landing-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+} */
+
+.split-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.split {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.designer {
+  background: linear-gradient(45deg, #9999FF, #AFDDFF);
+  position: relative;
+  left: 0;
+}
+
+.coder {
+  background: linear-gradient(135deg, #C68EFD, #8F87F1);
+  position: relative;
+  right: 0;
+}
+
+.split-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  padding: 2rem;
+}
+
+.split-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.split-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 300px;
+  line-height: 1.6;
+  opacity: 0.9;
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.skills-list span {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.skills-list span:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 7rem auto 0;
+}
+
+.profile-text {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 2rem 0;
+}
+
+.profile-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.profile-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  min-height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.highlight {
+  color: #ffd700;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  font-weight: 900;
+  position: relative;
+  display: inline-block;
+  font-family: 'ravors', sans-serif;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #ffd700;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.profile-text h1:hover .highlight::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.primary-btn {
+  background: white;
+  color: #333;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn:hover {
+  background: #af8af8;
+  color: #333;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.split:hover {
+  flex: 1.2;
+}
+
+.split:hover .split-content {
+  transform: scale(1.05);
+}
+
+.split:hover .designer-image,
+.split:hover .coder-image {
+  transform: scale(1.1);
+}
+
+.profile-image {
+  width: auto;
+  height: 450px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: translateY(-10px);
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .profile-image {
+    height: 400px;
+  }
+
+  .profile-text h1 {
+    font-size: 2rem;
+  }
+
+  .profile-text h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-container{
+    flex-direction: column;
+  }
+  .profile-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 280px;
+    margin-top: 5rem;
+  }
+
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .profile-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .profile-text h3 {
+    font-size: 1.5rem;
+    min-height: auto;
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+    width: auto;
+    gap: 1rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 10rem;
+    padding: 0.8rem 1rem;
+    font-size: small;
+  }
+  .split-container h2{
+    margin-top: 10rem;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .landing-container{
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+  }
+  .profile-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .profile-text h3 {
+    font-size: 1rem;
+  }
+
+  .split-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .cta-buttons {
+    gap: 0.8rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .image-container {
+    margin-top: 10rem;
+    display: inline-block; /* Hide image on very small screens to prioritize text */
+  }
+}
+
+/* Typing Animation */
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 2px solid #ffd700;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffd700;
+  }
+}
