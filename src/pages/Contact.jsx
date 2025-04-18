@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import '../styles/Contact.css';
 import githubIcon from "../assets/github.png";
 import linkedinIcon from "../assets/linkedin.png";
 import instagramIcon from "../assets/instagram.png";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ const Contact = () => {
     message: ''
   });
 
+  const form = useRef();
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,10 +21,21 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+
+    emailjs
+      .sendForm('service_oisclrj', 'template_68tubse', form.current, {
+        publicKey: '71e2sdpbk4aCUGTmW',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
   };
 
   return (
@@ -55,7 +69,7 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form" ref={form} onSubmit={sendEmail}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
