@@ -2,11 +2,19 @@ import React from 'react';
 import '../styles/Projects.css';
 import project1Image from '../assets/project1.png';
 import project2Image from '../assets/project2.png';
-import project3Image from '../assets/project3.png';                     
+import project3Image from '../assets/project3.png';                 
+import project4Image from '../assets/project4.png';    
 
 
 const Projects = () => {
   const projects = [
+    {
+      title: 'Lib Manage (Django Full-Stack Project)',
+      description: 'As a Full-Stack Developer, I developed "Lib Manage," a Django-based web application that allows users to browse and book books into a cart, manage their cart, and complete purchases. I implemented secure user authentication, enabling users to register, log in, and manage their profiles. The application includes a robust shopping cart feature, where users can add, view, and purchase books. I also integrated email notifications to inform users about their cart status and confirmed purchases.',
+      technologies: ['Python', 'Django', 'Bootstrap'],
+      image: project4Image,
+      link: '#'
+    },
     {
       title: 'Travel Planner ',
       description: 'Travel Planner is a dynamic web application developed using Java Servlet and JSP technologies that enables users to plan, organize, and manage their travel itineraries with ease. The application provides a user-friendly interface for creating personalized travel plans, selecting destinations, setting travel dates, managing bookings, and exploring travel suggestions.',

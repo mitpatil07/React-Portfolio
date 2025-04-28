@@ -147,6 +147,7 @@ body, html {
   color: #dc9d2a;
   text-shadow: 2px 2px #615c5c;
   margin-bottom: 0.5rem;
+  text-align: start;
 }
 .about-text p {
   font-size: 1.1rem;

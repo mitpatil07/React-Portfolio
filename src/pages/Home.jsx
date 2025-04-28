@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import React, { useState, useEffect } from 'react';
 import '../styles/LandingPage.css';
 import bgImage from '../assets/bg-image.png';
@@ -7,7 +8,9 @@ const Home = () => {
   const fullText = "Designer & Developer";
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  // Handle typing effect
   useEffect(() => {
     let timeout;
     const handleTyping = () => {
@@ -32,19 +35,25 @@ const Home = () => {
 
     timeout = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timeout);
-  }, [text, isDeleting, typingSpeed]);
+  }, [text, isDeleting, typingSpeed, fullText]);
 
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-  };
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="home-container">
       <section id="hero" className="landing-container">
-        <div className="split-container">
+        <div className={`split-container ${isMobile ? 'flex-column' : ''}`}>
           <div className="split designer">
             <div className="split-content">
-              <h2>Designer</h2> 
+              <h2>Designer</h2>
               <p>Product designer specializing in UI design and design systems</p>
               <div className="skills-list">
                 <span>UI/UX</span>
@@ -76,7 +85,7 @@ const Home = () => {
               <h3 className="typing-text">{text}</h3>
               <div className="cta-buttons">
                 <button className="primary-btn">Download CV</button>
-                <button to="/contact" className="secondary-btn">Contact Me</button>
+                <button className="secondary-btn">Contact Me</button>
               </div>
             </div>
             <div className="profile-image">
